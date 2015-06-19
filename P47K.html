@@ -1,0 +1,47 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel=stylesheet href="style.css" type="text/css">
+<title>47 Kyu Problems</title>
+</head>
+
+<body>
+<h2>47 кю</h2>
+<h3>Двойно атари</h3>
+<hr />
+<p>В някои ситуации, Черния може да направи две едновременни заплахи с един ход.<br />Понеже Белия не може да спаси и двата, Черния ще плени поне единия камък.</p>
+<p>Това се нарича "<strong>двойно атари</strong>".</p>
+<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
+	<param name="problem" value="ryoatari-1">
+	<param name="report" value="false">
+	<param name="init" value="B[cc]B[cd]B[dc]B[eb]W[be]W[ce]W[dd]W[ec]W[fb]">
+	<param name="sequence" value ="
+		{B[ed],W[fc],
+			{B[de],success@red}
+			{B[zz],W[de],failed@blue}
+		}
+		{B[fc],W[ed],failed@blue}
+		{B[de],W[ed],failed@blue}
+		{B[zz],W[ed],failed@blue}
+	">
+</applet>
+<p>Белия има твърде много слаби места, за да успее да "затвори" Черния в горния ляв ъгъл.</p>
+<hr />
+<p>Къде може да се направи двойно атари?</p>
+<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
+	<param name="problem" value="ryoatari-2">
+	<param name="report" value="false">
+	<param name="init" value="B[bd]B[be]B[cc]W[cd]W[ce]B[cf]B[db]W[dc]W[df]B[eb]W[ec]W[ee]B[fc]W[fd]">
+	<param name="sequence" value ="
+		{B[dd],W[de],
+			{B[ed],success@red}
+			{B[zz],W[ed],failed@blue}
+		}
+		{B[zz],W[dd],failed@blue}
+	">
+</applet>
+<hr />
+<a href="illegal.html"><img src="images/next.png" border="0">Следващ урок</a><p>
+<a href="TOC.html"><img src="images/toc.png" border="0">Съдържание</a><p>
+<a href="../index-e.html"><img src="images/playgoto.png">Начало</a>
+</body>
+</html>

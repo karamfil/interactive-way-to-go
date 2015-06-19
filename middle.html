@@ -1,0 +1,68 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel=stylesheet href="style.css" type="text/css">
+<title>36 кю</title>
+</head>
+<body>
+
+<h2>36 кю</h2>
+<hr />
+<p>	Челния е блокиран в долния ляв ъгъл. Групата има само едно око в момента.<br />Направете още едно за да я спасите. </p>
+<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
+	<param name="report" value="false">
+	<param name="problem" value="kamitori">
+   	<param name="init" value="W[be]B[bf]B[bg]B[bh]W[cd]W[cf]B[cg]W[ch]W[df]W[dg]B[gd]B[gg]">
+	<param name="sequence" value ="
+		{B[dh],W[eh],
+			{B[ci],success@red}
+			{B[di],W[ei],
+				{B[ci],success@red}
+				{B[zz],W[ci],failed@blue}
+			}
+			{B[zz],W[di],failed@blue}	
+		}
+		{B[zz],W[dh],failed@blue}
+	">
+</applet>
+<p>Може да направите още едно око като плените един бял камък. </p>
+<hr />
+<p>Черния ви спира . Белият все още няма две очи. </p>
+<p>Тогава играе <strong>G2</strong>. </p>
+<p>Преди да откриете верният отговор, вижте какво ще стане ако челния отговори със <strong>F1</strong> ( или <strong>G1</strong>).</p>
+<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
+	<param name="report" value="false">
+	<param name="problem" value="oiotoshi">
+	<param name="init" value="W[bc]B[bd]B[be]W[cd]B[cf]B[cg]B[ch]W[dg]W[dh]B[di]W[ec]B[ee]W[eg]W[fg]B[eh]B[fh]W[gh]W[gc]B[ge]W[hc]B[he]W[hf]">
+	<param name="sequence" value ="
+		{B[ei],success@red}
+		{B[ci],W[fi],
+			{B[ei],success@red}
+			{B[zz],W[ei],failed@blue}
+		}
+		{B[fi],W[gi],
+			{B[ei],W[ci],failed@blue}
+			{B[zz],W[ei],failed@blue}
+		}
+		{B[gi],W[ei],
+			{B[fi],W[hi],
+				{B[ei],W[ci],failed@blue}
+				{B[zz],W[ei],failed@blue}
+			}
+			{B[zz],W[fi],failed@blue}
+		}
+		{B[zz],W[fi],
+			{B[ei],W[ci],failed@blue}
+			{B[zz],W[ei],failed@blue}
+		}
+	">
+</applet>
+<p>Ако белият може да вземе двата черни камъка в долната част на дъската, ще може да живее лесно.</p>
+<p>Вашите камъни бяха в атари. И за това избагахте. <br />  В следващият момент вашите камъни изчезнаха! </p>
+<p>Тази неприятна ситуация се нарича &quot;<strong>оиотоши</strong>&quot;. <br />  You should have escaped *before* you were in Atari. </p>
+<hr />
+
+<a href="count.html"><img src="images/next.png" border="0">Следващ урок</a><p>
+<a href="TOC.html"><img src="images/toc.png" border="0">Съдържание</a><p>
+<a href="../index-e.html" target="_top"><img src="images/playgoto.png">Начало</a>
+</body>
+</html>
