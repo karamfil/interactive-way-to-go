@@ -1,71 +1,1 @@
-<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<link rel=stylesheet href="style.css" type="text/css">
-<title>Краят на играта</title>
-</head>
-
-<body>
-<h2>Краят на играта</h2>
-
-<p>С наближаване краят на играта, е територията и на двамата играчи е решена, всичко което трябва да направите е да определите границите между териториите.</p>
-<p>В тази фаза на играта трябва да се опитате да избутате границата колкото се може по навътре в противниковата територия, така хем увеличавате вашата а и намалявата тази на опонента.</p>
-<hr />
-<p>Черния притежава лявата часта, а белият дясната.<br />Обаче все още има няколко места където границата не е окончателно решена.</p>
-<p> Къде е мястото, където може да получите повече ?</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="report" value="false">
-	<param name="problem" value="yose1">
-   	<param name="init" value="B[bd]B[cb]B[cc]B[cg]W[db]W[dc]B[dd]W[ec]B[ee]B[eg]W[fc]G[fe]W[gd]W[ge]W[gg]W[gh]">
-	<param name="sequence" value ="
-		{B[fh],success-Black got some territory on the bottom.@red}
-		{B[eh],W[fh],failed-Be more greedy!@blue}
-		{B[ei],W[fi],success-but not best@red}
-		{B[fi],W[gi],success-but not best@red}
-		{B[fg],W[ei],failed@blue}
-		{B[gf],W[ff],failed@blue}
-		{B[dh],W[fh],failed@blue}
-		{B[zz],W[eh],failed-You lost the bottom area.@blue}
-	">
-</applet>
-<hr />
-<p>Черният има лявата част, белият дясната. Играта е почти завършила, но вримавайте до края!</p>
-<p>Белият тъкмо игра <strong>D1</strong>.<br /> Ако не отговорите, Вашата територия ще бъде разрушена.</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="report" value="false">
-	<param name="problem" value="yose2">
-   	<param name="init" value="B[dd]B[de]B[df]B[dg]B[dh]B[eb]B[ec]B[ed]B[fa]B[fb]W[ee]W[ef]W[eg]W[eh]W[fc]W[fd]W[ga]W[gb]W[ge]W[di]">
-	<param name="sequence" value ="
-		{B[ci],W[ei],The job has not done yet@black,
-			{B[ch],success-You prevented the cut.@red}
-			{B[bh],success-You prevented the cut.@red}
-			{B[cg],success-You prevented the cut.@red}
-			{B[ah],W[ch],
-				{B[bi],W[bh],
-					{B[ai],W[ag],failed@blue}
-					{B[zz],W[ai],failed@blue}
-				}
-				{B[zz],W[bi],failed@blue}
-			}
-			{B[bi],W[ch],
-				{B[bh],half-success- but not good@red}
-				{B[cg],W[bh],failed@blue}
-				{B[zz],W[bh],failed@blue}
-			}
-			{B[zz],W[ch],White cut your stone!@black,
-				{B[bi],W[bh],
-					{B[ai],W[ah],failed@blue}
-					{B[zz],W[ai],failed@blue}
-				}
-				{B[zz],W[bi],failed@blue}
-			}
-		}
-		{B[gc],W[hc],failed-You can't do that.@blue}
-		{B[ei],W[fi],failed@blue}
-		{B[zz],W[ci],failed@blue}
-	">
-</applet>
-<hr /><a href="hitome.html"><img src="images/next.png" border="0">Следващ урок</a><p>
-<a href="TOC.html"><img src="images/toc.png" border="0">Съдържание</a><p>
-<a href="../index-e.html"><img src="images/playgoto.png">Home</a>
-</body>
-</html>
+<html><head><meta charset="utf-8" />	<link rel=stylesheet href="style.css" type="text/css">	<title>РљСЂР°СЏС‚ РЅР° РёРіСЂР°С‚Р°</title></head><body>	<h2>РљСЂР°СЏС‚ РЅР° РёРіСЂР°С‚Р°</h2>		<p>РЎ РЅР°Р±Р»РёР¶Р°РІР°РЅРµ РєСЂР°СЏС‚ РЅР° РёРіСЂР°С‚Р°, Рµ С‚РµСЂРёС‚РѕСЂРёСЏС‚Р° Рё РЅР° РґРІР°РјР°С‚Р° РёРіСЂР°С‡Рё Рµ СЂРµС€РµРЅР°, РІСЃРёС‡РєРѕ РєРѕРµС‚Рѕ С‚СЂСЏР±РІР° РґР° РЅР°РїСЂР°РІРёС‚Рµ Рµ РґР° РѕРїСЂРµРґРµР»РёС‚Рµ РіСЂР°РЅРёС†РёС‚Рµ РјРµР¶РґСѓ С‚РµСЂРёС‚РѕСЂРёРёС‚Рµ.</p>	<p>Р’ С‚Р°Р·Рё С„Р°Р·Р° РЅР° РёРіСЂР°С‚Р° С‚СЂСЏР±РІР° РґР° СЃРµ РѕРїРёС‚Р°С‚Рµ РґР° РёР·Р±СѓС‚Р°С‚Рµ РіСЂР°РЅРёС†Р°С‚Р° РєРѕР»РєРѕС‚Рѕ СЃРµ РјРѕР¶Рµ РїРѕ РЅР°РІСЉС‚СЂРµ РІ РїСЂРѕС‚РёРІРЅРёРєРѕРІР°С‚Р° С‚РµСЂРёС‚РѕСЂРёСЏ, С‚Р°РєР° С…РµРј СѓРІРµР»РёС‡Р°РІР°С‚Рµ РІР°С€Р°С‚Р° Р° Рё РЅР°РјР°Р»СЏРІР°С‚Р° С‚Р°Р·Рё РЅР° РѕРїРѕРЅРµРЅС‚Р°.</p>	<hr />	<p>Р§РµСЂРЅРёСЏ РїСЂРёС‚РµР¶Р°РІР° Р»СЏРІР°С‚Р° С‡Р°СЃС‚Р°, Р° Р±РµР»РёСЏС‚ РґСЏСЃРЅР°С‚Р°.<br />РћР±Р°С‡Рµ РІСЃРµ РѕС‰Рµ РёРјР° РЅСЏРєРѕР»РєРѕ РјРµСЃС‚Р° РєСЉРґРµС‚Рѕ РіСЂР°РЅРёС†Р°С‚Р° РЅРµ Рµ РѕРєРѕРЅС‡Р°С‚РµР»РЅРѕ СЂРµС€РµРЅР°.</p>	<p> РљСЉРґРµ Рµ РјСЏСЃС‚РѕС‚Рѕ, РєСЉРґРµС‚Рѕ РјРѕР¶Рµ РґР° РїРѕР»СѓС‡РёС‚Рµ РїРѕРІРµС‡Рµ ?</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="report" value="false">		<param name="problem" value="yose1">		<param name="init" value="B[bd]B[cb]B[cc]B[cg]W[db]W[dc]B[dd]W[ec]B[ee]B[eg]W[fc]G[fe]W[gd]W[ge]W[gg]W[gh]">		<param name="sequence" value ="		{B[fh],success-Black got some territory on the bottom.@red}		{B[eh],W[fh],failed-Be more greedy!@blue}		{B[ei],W[fi],success-but not best@red}		{B[fi],W[gi],success-but not best@red}		{B[fg],W[ei],failed@blue}		{B[gf],W[ff],failed@blue}		{B[dh],W[fh],failed@blue}		{B[zz],W[eh],failed-You lost the bottom area.@blue}		">	</applet>	<hr />	<p>Р§РµСЂРЅРёСЏС‚ РёРјР° Р»СЏРІР°С‚Р° С‡Р°СЃС‚, Р±РµР»РёСЏС‚ РґСЏСЃРЅР°С‚Р°. РРіСЂР°С‚Р° Рµ РїРѕС‡С‚Рё Р·Р°РІСЉСЂС€РёР»Р°, РЅРѕ РІСЂРёРјР°РІР°Р№С‚Рµ РґРѕ РєСЂР°СЏ!</p>	<p>Р‘РµР»РёСЏС‚ С‚СЉРєРјРѕ РёРіСЂР° <strong>D1</strong>.<br /> РђРєРѕ РЅРµ РѕС‚РіРѕРІРѕСЂРёС‚Рµ, Р’Р°С€Р°С‚Р° С‚РµСЂРёС‚РѕСЂРёСЏ С‰Рµ Р±СЉРґРµ СЂР°Р·СЂСѓС€РµРЅР°.</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="report" value="false">		<param name="problem" value="yose2">		<param name="init" value="B[dd]B[de]B[df]B[dg]B[dh]B[eb]B[ec]B[ed]B[fa]B[fb]W[ee]W[ef]W[eg]W[eh]W[fc]W[fd]W[ga]W[gb]W[ge]W[di]">		<param name="sequence" value ="		{B[ci],W[ei],The job has not done yet@black,		{B[ch],success-You prevented the cut.@red}		{B[bh],success-You prevented the cut.@red}		{B[cg],success-You prevented the cut.@red}		{B[ah],W[ch],		{B[bi],W[bh],		{B[ai],W[ag],failed@blue}		{B[zz],W[ai],failed@blue}	}	{B[zz],W[bi],failed@blue}}{B[bi],W[ch],	{B[bh],half-success- but not good@red}	{B[cg],W[bh],failed@blue}	{B[zz],W[bh],failed@blue}}{B[zz],W[ch],White cut your stone!@black,	{B[bi],W[bh],	{B[ai],W[ah],failed@blue}	{B[zz],W[ai],failed@blue}}{B[zz],W[bi],failed@blue}}}{B[gc],W[hc],failed-You can't do that.@blue}{B[ei],W[fi],failed@blue}{B[zz],W[ci],failed@blue}"></applet><hr /><a href="hitome.html"><img src="images/next.png" border="0">РЎР»РµРґРІР°С‰ СѓСЂРѕРє</a><p><a href="TOC.html"><img src="images/toc.png" border="0">РЎСЉРґСЉСЂР¶Р°РЅРёРµ</a><p><a href="../index-e.html"><img src="images/playgoto.png">Home</a></body></html>

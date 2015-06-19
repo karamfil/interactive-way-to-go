@@ -1,90 +1,1 @@
-<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<link rel=stylesheet href="style.css" type="text/css">
-<title>46 Kyu Problems</title>
-</head>
-
-<body>
-<h2>46 кю</h2>
-<p>(Отново можете да играете на дъската)</p>
-
-<hr />
-<p>Черния е на ход. На пръв поглед изглежда като забранен ход ...</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="problem" value="46K-1">
-    <param name="init" value="B[cc]B[cd]B[db]W[dc]W[dd]B[de]W[ea]W[eb]W[ed]B[ee]B[fb]W[fc]B[fd]W[gc]">
-	<param name="sequence" value ="
-		{B[ec],success@red}
-		{B[zz],W[ec],failed@blue}
-	">
-</applet>
-<hr />
-<p>4 черни камъка са в опасност!<br />Пленете белите камъни преди да бъдете пленени!</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="report" value="false">
-	<param name="problem" value="46K-2">
-    <param name="init" value="W[ab]B[ac]W[ad]W[cd]W[dd]B[bc]B[cc]B[dc]W[ec]W[ba]W[ca]W[da]W[bb]W[cb]W[db]B[ea]B[eb]">
-	<param name="sequence" value ="
-		{B[aa],success@red}{B[bd],W[be],failed@blue}
-		{B[zz],W[bd],failed@blue}
-	">
-</applet>
-<hr />
-<p>Пленете двата бели камъка, които се докосват до черните.<br />Сега ще ви трябва повече от един ход, за да плените.</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="report" value="false">
-	<param name="problem" value="46K-3-2shem">
-    <param name="init" value="W[dc]W[eb]W[bd]B[ce]W[de]W[ee]B[fd]B[fe]B[df]B[ef]">
-	<param name="sequence" value ="
-		{B[dd],W[ed],{B[ec],success@red}{B[zz],W[ec],failed@blue}}
-		{B[zz],W[dd],failed@blue}
-	">
-</applet>
-<hr />
-<p>Ако успеете да плените Белия камък (<strong>D5</strong>), който разделя черните камъни, играта ще стане много лесна.</p>
-<p>[Подсказка] Опитайте се да не атакувате врага директно.</p>
-<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">
-	<param name="report" value="false">
-	<param name="problem" value="46K-4-kake">
-	<param name="init" value="W[bc]B[cd]B[ce]W[cf]W[cg]W[de]B[df]B[ef]W[eg]W[fc]">
-	<param name="sequence" value ="
-		{B[ed],W[dd],
-			{B[dc],W[ee],
-				{B[fe],success@red}
-				{B[zz],W[fe],failed@blue}
-			}
-			{B[zz],W[dc],failed@blue}
-		}
-		{B[dd],W[ee],
-			{B[ed],W[fe],failed@blue}
-			{B[fe],W[ed],failed@blue}
-			{B[zz],B[fe],failed@blue}
-		}
-		{B[ee],W[dd],
-			{B[ed],W[dc],failed@blue}
-			{B[dc],W[ed],failed@blue}
-			{B[zz],W[dc],failed@blue}
-		}
-		{B[ec],W[ee],
-			{B[fe],W[ff],failed@blue}
-			{B[ff],W[fe],failed@blue}
-			{B[zz],W[ff],failed@blue}
-		}
-		{B[fd],W[ee],
-			{B[fe],W[ff],failed@blue}
-			{B[ff],W[fe],failed@blue}
-			{B[zz],W[ff],failed@blue}
-		}
-		{B[zz],W[ed],failed@blue}
-	">
-</applet>
-<hr />
-<p>Зашо толкова много искаме да пленим камъка на опонента?</p>
-<p> Защото <strong>пленявайки камъните, които разделят вашите собствени, вашите камъни ще станат свързани.</strong></p>
-<p>Това е нещо много важно в Го.<br /><strong>Просто запомнете да се стараете вашите камъни да са свързани един с друг когато е възможно.</strong></p>
-<hr />
-<a href="P45K.html"><img src="images/next.png" border="0">Следващ урок</a><p>
-<a href="TOC.html"><img src="images/toc.png" border="0">Съдържание</a><p>
-<a href="../index-e.html"><img src="images/playgoto.png">Начало</a>
-</body>
-</html>
+<html><head><meta charset="utf-8" />	<link rel=stylesheet href="style.css" type="text/css">	<title>46 Kyu Problems</title></head><body>	<h2>46 РєСЋ</h2>	<p>(РћС‚РЅРѕРІРѕ РјРѕР¶РµС‚Рµ РґР° РёРіСЂР°РµС‚Рµ РЅР° РґСЉСЃРєР°С‚Р°)</p>		<hr />	<p>Р§РµСЂРЅРёСЏ Рµ РЅР° С…РѕРґ. РќР° РїСЂСЉРІ РїРѕРіР»РµРґ РёР·РіР»РµР¶РґР° РєР°С‚Рѕ Р·Р°Р±СЂР°РЅРµРЅ С…РѕРґ ...</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="problem" value="46K-1">		<param name="init" value="B[cc]B[cd]B[db]W[dc]W[dd]B[de]W[ea]W[eb]W[ed]B[ee]B[fb]W[fc]B[fd]W[gc]">		<param name="sequence" value ="		{B[ec],success@red}		{B[zz],W[ec],failed@blue}		">	</applet>	<hr />	<p>4 С‡РµСЂРЅРё РєР°РјСЉРєР° СЃР° РІ РѕРїР°СЃРЅРѕСЃС‚!<br />РџР»РµРЅРµС‚Рµ Р±РµР»РёС‚Рµ РєР°РјСЉРЅРё РїСЂРµРґРё РґР° Р±СЉРґРµС‚Рµ РїР»РµРЅРµРЅРё!</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="report" value="false">		<param name="problem" value="46K-2">		<param name="init" value="W[ab]B[ac]W[ad]W[cd]W[dd]B[bc]B[cc]B[dc]W[ec]W[ba]W[ca]W[da]W[bb]W[cb]W[db]B[ea]B[eb]">		<param name="sequence" value ="		{B[aa],success@red}{B[bd],W[be],failed@blue}		{B[zz],W[bd],failed@blue}		">	</applet>	<hr />	<p>РџР»РµРЅРµС‚Рµ РґРІР°С‚Р° Р±РµР»Рё РєР°РјСЉРєР°, РєРѕРёС‚Рѕ СЃРµ РґРѕРєРѕСЃРІР°С‚ РґРѕ С‡РµСЂРЅРёС‚Рµ.<br />РЎРµРіР° С‰Рµ РІРё С‚СЂСЏР±РІР° РїРѕРІРµС‡Рµ РѕС‚ РµРґРёРЅ С…РѕРґ, Р·Р° РґР° РїР»РµРЅРёС‚Рµ.</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="report" value="false">		<param name="problem" value="46K-3-2shem">		<param name="init" value="W[dc]W[eb]W[bd]B[ce]W[de]W[ee]B[fd]B[fe]B[df]B[ef]">		<param name="sequence" value ="		{B[dd],W[ed],{B[ec],success@red}{B[zz],W[ec],failed@blue}}		{B[zz],W[dd],failed@blue}		">	</applet>	<hr />	<p>РђРєРѕ СѓСЃРїРµРµС‚Рµ РґР° РїР»РµРЅРёС‚Рµ Р‘РµР»РёСЏ РєР°РјСЉРє (<strong>D5</strong>), РєРѕР№С‚Рѕ СЂР°Р·РґРµР»СЏ С‡РµСЂРЅРёС‚Рµ РєР°РјСЉРЅРё, РёРіСЂР°С‚Р° С‰Рµ СЃС‚Р°РЅРµ РјРЅРѕРіРѕ Р»РµСЃРЅР°.</p>	<p>[РџРѕРґСЃРєР°Р·РєР°] РћРїРёС‚Р°Р№С‚Рµ СЃРµ РґР° РЅРµ Р°С‚Р°РєСѓРІР°С‚Рµ РІСЂР°РіР° РґРёСЂРµРєС‚РЅРѕ.</p>	<applet codebase="./../java" code="mori/go/ProblemApplet.class" width="300" height="250">		<param name="report" value="false">		<param name="problem" value="46K-4-kake">		<param name="init" value="W[bc]B[cd]B[ce]W[cf]W[cg]W[de]B[df]B[ef]W[eg]W[fc]">		<param name="sequence" value ="		{B[ed],W[dd],		{B[dc],W[ee],		{B[fe],success@red}		{B[zz],W[fe],failed@blue}	}	{B[zz],W[dc],failed@blue}}{B[dd],W[ee],	{B[ed],W[fe],failed@blue}	{B[fe],W[ed],failed@blue}	{B[zz],B[fe],failed@blue}}{B[ee],W[dd],	{B[ed],W[dc],failed@blue}	{B[dc],W[ed],failed@blue}	{B[zz],W[dc],failed@blue}}{B[ec],W[ee],	{B[fe],W[ff],failed@blue}	{B[ff],W[fe],failed@blue}	{B[zz],W[ff],failed@blue}}{B[fd],W[ee],	{B[fe],W[ff],failed@blue}	{B[ff],W[fe],failed@blue}	{B[zz],W[ff],failed@blue}}{B[zz],W[ed],failed@blue}"></applet><hr /><p>Р—Р°С€Рѕ С‚РѕР»РєРѕРІР° РјРЅРѕРіРѕ РёСЃРєР°РјРµ РґР° РїР»РµРЅРёРј РєР°РјСЉРєР° РЅР° РѕРїРѕРЅРµРЅС‚Р°?</p><p> Р—Р°С‰РѕС‚Рѕ <strong>РїР»РµРЅСЏРІР°Р№РєРё РєР°РјСЉРЅРёС‚Рµ, РєРѕРёС‚Рѕ СЂР°Р·РґРµР»СЏС‚ РІР°С€РёС‚Рµ СЃРѕР±СЃС‚РІРµРЅРё, РІР°С€РёС‚Рµ РєР°РјСЉРЅРё С‰Рµ СЃС‚Р°РЅР°С‚ СЃРІСЉСЂР·Р°РЅРё.</strong></p><p>РўРѕРІР° Рµ РЅРµС‰Рѕ РјРЅРѕРіРѕ РІР°Р¶РЅРѕ РІ Р“Рѕ.<br /><strong>РџСЂРѕСЃС‚Рѕ Р·Р°РїРѕРјРЅРµС‚Рµ РґР° СЃРµ СЃС‚Р°СЂР°РµС‚Рµ РІР°С€РёС‚Рµ РєР°РјСЉРЅРё РґР° СЃР° СЃРІСЉСЂР·Р°РЅРё РµРґРёРЅ СЃ РґСЂСѓРі РєРѕРіР°С‚Рѕ Рµ РІСЉР·РјРѕР¶РЅРѕ.</strong></p><hr /><a href="P45K.html"><img src="images/next.png" border="0">РЎР»РµРґРІР°С‰ СѓСЂРѕРє</a><p><a href="TOC.html"><img src="images/toc.png" border="0">РЎСЉРґСЉСЂР¶Р°РЅРёРµ</a><p><a href="../index-e.html"><img src="images/playgoto.png">РќР°С‡Р°Р»Рѕ</a></body></html>
