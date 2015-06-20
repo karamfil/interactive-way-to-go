@@ -304,22 +304,66 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 var app, app_controllers;
 app = angular.module('iwtg', ['ui.router', 'iwtg.controllers']);
 app.config([
-  '$interpolateProvider', '$locationProvider', '$urlMatcherFactoryProvider', '$stateProvider', function($interpolateProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider, $http){
+  '$interpolateProvider', '$locationProvider', '$urlMatcherFactoryProvider', '$stateProvider', function($interpolateProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider){
+    var resolvers;
     $interpolateProvider.startSymbol('[[').endSymbol(']]');
     $locationProvider.hashPrefix('!');
     $urlMatcherFactoryProvider.strictMode(false);
+    resolvers = {
+      lang: [
+        '$stateParams', 'TranslationsService', function($stateParams, TranslationsService){
+          return TranslationsService.lang($stateParams.lang);
+        }
+      ]
+    };
     return $stateProvider.state('home', {
-      url: '/:lang/',
-      templateUrl: 'tpl/home/index/'
+      url: '',
+      templateUrl: "/pages/welcome.html"
     }).state('url', {
       url: '/:lang/:page/',
       templateUrl: function(it){
-        return "pages/" + it.lang + "/" + it.page + ".html";
+        return "/pages/" + it.page + ".html";
+      },
+      controller: [
+        '$rootScope', 'TranslationsService', 'translations', function($rootScope, TranslationsService, translations){
+          $rootScope.T = translations.data;
+          return $rootScope.LANG = TranslationsService.lang_current;
+        }
+      ],
+      resolve: {
+        translations: resolvers.lang
       }
     });
   }
 ]);
 app_controllers = angular.module('iwtg.controllers', []);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5scyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsR0FBSSxDQUFBLENBQUEsQ0FBRSxPQUFPLENBQUMsT0FBTyxRQUFPLENBQzNCLGFBRUEsa0JBSDJCLENBQVA7QUFNckIsR0FBRyxDQUFDLE9BQU87RUFDVix3QkFBc0IscUJBQW1CLDhCQUE0QixrQkFDckUsUUFBQSxDQUFBLG9CQUFBLEVBQUEsaUJBQUEsRUFBQSwwQkFBQSxFQUFBLGNBQUEsRUFBQSxLQUFBO0lBQ0Msb0JBQ0MsQ0FBQyxZQUFZLElBQUEsQ0FDYixDQUFDLFVBQVcsSUFBQTtJQUViLGlCQUVDLENBQUMsV0FBWSxHQUFBO0lBRWQsMEJBQTBCLENBQUMsV0FBVyxLQUFEO1dBRXJDLGNBQ0MsQ0FBQyxNQUFNLFFBQ047TUFBQSxLQUFRO01BQ1IsYUFBYztJQURkLENBRE0sQ0FJUCxDQUFDLE1BQU0sT0FDTjtNQUFBLEtBQVE7TUFDUixhQUFjLFFBQUEsQ0FBQSxFQUFBO2VBQUcsUUFBQSxDQUFBLENBQUEsQ0FBUyxFQUFFLENBQUMsSUFBSSxDQUFBLENBQUEsQ0FBQyxHQUFBLENBQUEsQ0FBQSxDQUFHLEVBQUUsQ0FBQyxJQUFJLENBQUEsQ0FBQSxDQUFDOztJQUQ3QyxDQURNOztBQWxCQyxDQUFBO0FBMkJYLGVBQWdCLENBQUEsQ0FBQSxDQUFFLE9BQU8sQ0FBQyxPQUFPLG9CQUFvQixFQUFyQiIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyJhcHAgPSBhbmd1bGFyLm1vZHVsZSBcXGl3dGcsIFtcblx0XFx1aS5yb3V0ZXJcblx0XG5cdFxcaXd0Zy5jb250cm9sbGVyc1xuXVxuXG5hcHAuY29uZmlnIFtcblx0XFwkaW50ZXJwb2xhdGVQcm92aWRlciBcXCRsb2NhdGlvblByb3ZpZGVyIFxcJHVybE1hdGNoZXJGYWN0b3J5UHJvdmlkZXIgXFwkc3RhdGVQcm92aWRlciBcblx0KCRpbnRlcnBvbGF0ZVByb3ZpZGVyLCAkbG9jYXRpb25Qcm92aWRlciwgJHVybE1hdGNoZXJGYWN0b3J5UHJvdmlkZXIsICRzdGF0ZVByb3ZpZGVyLCAkaHR0cCktPlxuXHRcdCRpbnRlcnBvbGF0ZVByb3ZpZGVyXG5cdFx0XHQuc3RhcnRTeW1ib2xcdCdbWydcblx0XHRcdC5lbmRTeW1ib2xcdFx0J11dJ1xuXHRcdFxuXHRcdCRsb2NhdGlvblByb3ZpZGVyXG5cdFx0XHQjIC5odG1sNU1vZGVcdFx0dHJ1ZVxuXHRcdFx0Lmhhc2hQcmVmaXhcdFx0JyEnXG5cdFx0XG5cdFx0JHVybE1hdGNoZXJGYWN0b3J5UHJvdmlkZXIuc3RyaWN0TW9kZShmYWxzZSlcblx0XHRcblx0XHQkc3RhdGVQcm92aWRlclxuXHRcdFx0LnN0YXRlIFxcaG9tZSxcblx0XHRcdFx0dXJsXHRcdFx0OiAnLzpsYW5nLydcblx0XHRcdFx0dGVtcGxhdGVVcmxcdDogXFx0cGwvaG9tZS9pbmRleC9cblx0XHRcdFx0IyByZXNvbHZlXHRcdDogZGF0YTogW1xcJHN0YXRlUGFyYW1zIFxcJGh0dHAgKCRzdGF0ZVBhcmFtcywgJGh0dHApLT4gJGh0dHAuZ2V0IFwiYXBpL2hvbWUvaW5kZXgvXCJdXG5cdFx0XHQuc3RhdGUgXFx1cmwsXG5cdFx0XHRcdHVybFx0XHRcdDogXFwvOmxhbmcvOnBhZ2UvXG5cdFx0XHRcdHRlbXBsYXRlVXJsXHQ6IC0+IFwicGFnZXMvI3tpdC5sYW5nfS8je2l0LnBhZ2V9Lmh0bWxcIlxuXHRcdFx0XHQjIGNvbnRyb2xsZXJcdDogW1xcJHNjb3BlIFxccmVzcG9uc2UgKCRzY29wZSwgcmVzcG9uc2UpLT4gJHNjb3BlLnJlc3BvbnNlID0gcmVzcG9uc2UuZGF0YSBdXG5cdFx0XHRcdCMgcmVzb2x2ZVx0XHQ6IHJlc3BvbnNlOiBbXFwkc3RhdGVQYXJhbXMgXFwkaHR0cCAoJHN0YXRlUGFyYW1zLCAkaHR0cCktPiAkaHR0cC5nZXQgXCJhcGkvI3skc3RhdGVQYXJhbXMubW9kZWx9LyN7JHN0YXRlUGFyYW1zLm1ldGhvZH0vXCJdXG5cdFx0XG5cdFx0IyBUT0RPIExPQURFUlxuXVxuXG5hcHBfY29udHJvbGxlcnMgPSBhbmd1bGFyLm1vZHVsZSgnaXd0Zy5jb250cm9sbGVycycsIFtdKTtcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
-app_controllers.controller('Base', ['$scope', '$state', function($scope, $state){}]);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhc2UubHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZUFBZSxDQUFDLFdBQVcsUUFBTyxDQUFDLFVBQVEsVUFBUSxRQUFBLENBQUEsTUFBQSxFQUFBLE1BQUEsR0FBakIsQ0FBUCIsImZpbGUiOiJjb250cm9sbGVycy9iYXNlLmpzIiwic291cmNlc0NvbnRlbnQiOltudWxsXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5scyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsR0FBSSxDQUFBLENBQUEsQ0FBRSxPQUFPLENBQUMsT0FBTyxRQUFPLENBQzNCLGFBRUEsa0JBSDJCLENBQVA7QUFNckIsR0FBRyxDQUFDLE9BQU87RUFDVix3QkFBc0IscUJBQW1CLDhCQUE0QixrQkFDckUsUUFBQSxDQUFBLG9CQUFBLEVBQUEsaUJBQUEsRUFBQSwwQkFBQSxFQUFBLGNBQUE7O0lBQ0Msb0JBQ0MsQ0FBQyxZQUFZLElBQUEsQ0FDYixDQUFDLFVBQVcsSUFBQTtJQUViLGlCQUVDLENBQUMsV0FBWSxHQUFBO0lBRWQsMEJBQTBCLENBQUMsV0FBVyxLQUFEO0lBRXJDLFNBQVUsQ0FBQSxDQUFBLENBQ1Q7TUFBQSxNQUFNO1FBQUMsZ0JBQWUsdUJBQXFCLFFBQUEsQ0FBQSxZQUFBLEVBQUEsbUJBQUE7aUJBQXNDLG1CQUFtQixDQUFDLEtBQUssWUFBWSxDQUFDLElBQWI7O01BQXBHO0lBQU47V0FFRCxjQUNDLENBQUMsTUFBTSxRQUNOO01BQUEsS0FBUTtNQUNSLGFBQW1DO0lBRG5DLENBRE0sQ0FJUCxDQUFDLE1BQU0sT0FDTjtNQUFBLEtBQVE7TUFDUixhQUFjLFFBQUEsQ0FBQSxFQUFBO2VBQUcsU0FBQSxDQUFBLENBQUEsQ0FBVSxFQUFFLENBQUMsSUFBSSxDQUFBLENBQUEsQ0FBQzs7TUFDbkMsWUFBYTtRQUFFLGNBQVksdUJBQXFCLGdCQUFjLFFBQUEsQ0FBQSxVQUFBLEVBQUEsbUJBQUEsRUFBQSxZQUFBO1VBQzdELFVBQVUsQ0FBQyxDQUFHLENBQUEsQ0FBQSxDQUFFLFlBQVksQ0FBQztpQkFDN0IsVUFBVSxDQUFDLElBQU0sQ0FBQSxDQUFBLENBQUUsbUJBQW1CLENBQUM7O01BRjNCO01BSWIsU0FBVztRQUFBLGNBQWMsU0FBUyxDQUFDO01BQXhCO0lBTlgsQ0FETTs7QUFyQkMsQ0FBQTtBQWlDWCxlQUFnQixDQUFBLENBQUEsQ0FBRSxPQUFPLENBQUMsT0FBTyxvQkFBb0IsRUFBckIiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlc0NvbnRlbnQiOlsiYXBwID0gYW5ndWxhci5tb2R1bGUgXFxpd3RnLCBbXG5cdFxcdWkucm91dGVyXG5cdFxuXHRcXGl3dGcuY29udHJvbGxlcnNcbl1cblxuYXBwLmNvbmZpZyBbXG5cdFxcJGludGVycG9sYXRlUHJvdmlkZXIgXFwkbG9jYXRpb25Qcm92aWRlciBcXCR1cmxNYXRjaGVyRmFjdG9yeVByb3ZpZGVyIFxcJHN0YXRlUHJvdmlkZXJcblx0KCRpbnRlcnBvbGF0ZVByb3ZpZGVyLCAkbG9jYXRpb25Qcm92aWRlciwgJHVybE1hdGNoZXJGYWN0b3J5UHJvdmlkZXIsICRzdGF0ZVByb3ZpZGVyKS0+XG5cdFx0JGludGVycG9sYXRlUHJvdmlkZXJcblx0XHRcdC5zdGFydFN5bWJvbFx0J1tbJ1xuXHRcdFx0LmVuZFN5bWJvbFx0XHQnXV0nXG5cdFx0XG5cdFx0JGxvY2F0aW9uUHJvdmlkZXJcblx0XHRcdCMgLmh0bWw1TW9kZVx0XHR0cnVlXG5cdFx0XHQuaGFzaFByZWZpeFx0XHQnISdcblx0XHRcblx0XHQkdXJsTWF0Y2hlckZhY3RvcnlQcm92aWRlci5zdHJpY3RNb2RlKGZhbHNlKVxuXHRcdFxuXHRcdHJlc29sdmVycyA9IFxuXHRcdFx0bGFuZzogW1xcJHN0YXRlUGFyYW1zLCBcXFRyYW5zbGF0aW9uc1NlcnZpY2UgKCRzdGF0ZVBhcmFtcywgVHJhbnNsYXRpb25zU2VydmljZSktPiBUcmFuc2xhdGlvbnNTZXJ2aWNlLmxhbmcgJHN0YXRlUGFyYW1zLmxhbmcgXVxuXHRcdFxuXHRcdCRzdGF0ZVByb3ZpZGVyXG5cdFx0XHQuc3RhdGUgXFxob21lLFxuXHRcdFx0XHR1cmxcdFx0XHQ6ICcnXG5cdFx0XHRcdHRlbXBsYXRlVXJsXHQ6IFwiL3BhZ2VzL3dlbGNvbWUuaHRtbFwiXG5cdFx0XHRcdCMgcmVzb2x2ZVx0XHQ6IGRhdGE6IFtcXCRzdGF0ZVBhcmFtcyBcXCRodHRwICgkc3RhdGVQYXJhbXMsICRodHRwKS0+ICRodHRwLmdldCBcImFwaS9ob21lL2luZGV4L1wiXVxuXHRcdFx0LnN0YXRlIFxcdXJsLFxuXHRcdFx0XHR1cmxcdFx0XHQ6IFxcLzpsYW5nLzpwYWdlL1xuXHRcdFx0XHR0ZW1wbGF0ZVVybFx0OiAtPiBcIi9wYWdlcy8je2l0LnBhZ2V9Lmh0bWxcIlxuXHRcdFx0XHRjb250cm9sbGVyXHQ6IFsgXFwkcm9vdFNjb3BlIFxcVHJhbnNsYXRpb25zU2VydmljZSBcXHRyYW5zbGF0aW9ucyAoJHJvb3RTY29wZSwgVHJhbnNsYXRpb25zU2VydmljZSwgdHJhbnNsYXRpb25zKS0+XG5cdFx0XHRcdFx0JHJvb3RTY29wZS5UXHRcdD0gdHJhbnNsYXRpb25zLmRhdGFcblx0XHRcdFx0XHQkcm9vdFNjb3BlLkxBTkdcdFx0PSBUcmFuc2xhdGlvbnNTZXJ2aWNlLmxhbmdfY3VycmVudFxuXHRcdFx0XHRdXG5cdFx0XHRcdHJlc29sdmVcdFx0OiB0cmFuc2xhdGlvbnM6IHJlc29sdmVycy5sYW5nXG5cdFx0XG5cdFx0IyBUT0RPIExPQURFUlxuXVxuXG5hcHBfY29udHJvbGxlcnMgPSBhbmd1bGFyLm1vZHVsZSgnaXd0Zy5jb250cm9sbGVycycsIFtdKTtcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
+app_controllers.controller('BaseController', [
+  '$scope', '$state', '$sce', 'TranslationsService', function($scope, $state, $sce, TranslationsService){
+    $scope._ = TranslationsService.get;
+    $scope.$state = $state;
+    $scope.$sce = $sce;
+  }
+]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJhc2UubHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZUFBZSxDQUFDLFdBQVcsa0JBQWdCO0VBQUMsVUFBUSxVQUFRLFFBQU0sdUJBQXFCLFFBQUEsQ0FBQSxNQUFBLEVBQUEsTUFBQSxFQUFBLElBQUEsRUFBQSxtQkFBQTtJQUN0RixNQUFNLENBQUMsQ0FBRyxDQUFBLENBQUEsQ0FBRSxtQkFBbUIsQ0FBQztJQUNoQyxNQUFNLENBQUMsTUFBTyxDQUFBLENBQUEsQ0FBRTtJQUNoQixNQUFNLENBQUMsSUFBTSxDQUFBLENBQUEsQ0FBRTs7QUFIMkIsQ0FBaEIiLCJmaWxlIjoiY29udHJvbGxlcnMvYmFzZS5qcyIsInNvdXJjZXNDb250ZW50IjpbbnVsbF0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
+app.service('TranslationsService', [
+  '$http', function($http){
+    var this$ = this;
+    this.lang_current = null;
+    this.translations = {};
+    this.lang = function(it){
+      if (this$.lang_current !== it) {
+        this$.lang_current = it;
+        return $http.get("/translations/" + it + ".json").success(function(it){
+          this$.translations = it;
+        });
+      } else {
+        return this$.translations;
+      }
+    };
+    this.get = function(it){
+      return this$.translations[it] || it;
+    };
+  }
+]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRyYW5zbGF0aW9ucy5scyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxHQUFHLENBQUMsUUFBUSx1QkFBcUI7RUFBRSxTQUFPLFFBQUEsQ0FBQSxLQUFBOztJQUN6QyxJQUFDLENBQUEsWUFBYSxDQUFBLENBQUEsQ0FBRTtJQUNoQixJQUFDLENBQUEsWUFBYSxDQUFBLENBQUEsQ0FBRTtJQUVoQixJQUFDLENBQUEsSUFBSyxDQUFBLENBQUEsQ0FBRSxRQUFBLENBQUEsRUFBQTtNQUNQLElBQUcsS0FBQyxDQUFBLFlBQWEsQ0FBQSxHQUFBLENBQUcsRUFBcEI7UUFDQyxLQUFDLENBQUEsWUFBYSxDQUFBLENBQUEsQ0FBRTtlQUNoQixLQUFLLENBQUMsSUFBSSxnQkFBQSxDQUFBLENBQUEsQ0FBZSxFQUFBLENBQUEsQ0FBQSxDQUFBLE9BQW5CLENBQTZCLENBQUMsUUFBUSxRQUFBLENBQUEsRUFBQTtVQUFJLEtBQUMsQ0FBQSxZQUFhLENBQUEsQ0FBQSxDQUFFO1NBQXBCO09BQzdDO2VBQ0MsS0FBQyxDQUFBOzs7SUFFSCxJQUFDLENBQUEsR0FBSSxDQUFBLENBQUEsQ0FBRSxRQUFBLENBQUEsRUFBQTthQUFHLEtBQUMsQ0FBQSxZQUFZLENBQUMsRUFBRCxDQUFLLENBQUEsRUFBQSxDQUFHOzs7QUFYQyxDQUFyQiIsImZpbGUiOiJzZXJ2aWNlcy90cmFuc2xhdGlvbnMuanMiLCJzb3VyY2VzQ29udGVudCI6W251bGxdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

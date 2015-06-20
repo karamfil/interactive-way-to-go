@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="iwtg">
+<html ng-app="iwtg" ng-controller="BaseController">
 <head>
 	<meta charset="utf-8" />
-	<title>Интерактивни уроци по Го</title>
+	<title ng-bind="_('The Interactive Way To Go')"></title>
 	
 	<link rel="stylesheet" type="text/css" href="/styles/screen.css" />
 	
@@ -12,65 +12,74 @@
 </head>
 <body>
 	<header>
-		<h1>Интерактивни уроци по Го</h1>
+		<h1 ng-bind="_('The Interactive Way To Go')"></h1>
 	</header>
 	
 	<aside>
+		<p>
+			<label>[[_('Language')]]:</label>
+			<select>
+				<option value="en" ng-selected="'en' == LANG">English</option>
+				<option value="bg" ng-selected="'bg' == LANG">Bulgarian</option>
+			</select>
+		</p>
 		<ol>
 			<h4>Основни правила и пленяване на камъни</h4>
-			<li><a ui-sref="url({ lang: 'bg', page: 'welcome' })"		>Въведение</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'remove' })"		>Как се пленяват камъни</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P50K' })"			>50кю</a> - Пленяване на камъни в атари!</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P49K' })"			>49кю</a> - Малко по-трудно</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P48K' })"			>48кю</a> - Пленявай смело!</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'BlackHeaven' })"	>Плени всички бели камъни</a> - Малко почивка</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P47K' })"			>47кю</a> - Двойно атари</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'illegal' })"		>Забранени ходове</a> - Още едно правило</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P46K' })"			>46кю</a> - Мислете внимателно</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'welcome' })"		>Въведение</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'remove' })"		>Как се пленяват камъни</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P50K' })"		>50кю</a> - Пленяване на камъни в атари!</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P49K' })"		>49кю</a> - Малко по-трудно</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P48K' })"		>48кю</a> - Пленявай смело!</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'BlackHeaven' })"	>Плени всички бели камъни</a> - Малко почивка</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P47K' })"		>47кю</a> - Двойно атари</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'illegal' })"		>Забранени ходове</a> - Още едно правило</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P46K' })"		>46кю</a> - Мислете внимателно</li>
 			
 			<h4>Повече за пленяването на камъни</h4>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P45K' })"			>45кю</a> - Научете как се прави "Стълба"</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'nigan' })"			>Камъни, които не могат да бъдат пленени</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P44K' })"			>44кю</a> - Направете две очи</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P43K' })"			>43кю</a> - Семеай (надпревара в пленяването)</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P42K' })"			>42кю</a> - Утегаеши (snapback) - контрапленяване</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'ko' })"			>Ко</a> - Последното правило</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'P40K' })"			>40кю</a> - Гнездото на жерава</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'falseeye' })"		>39кю</a> - Фалшиви очи</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'cornerwar' })"		>38кю</a> - Битка в ъгъла</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'complex' })"		>37кю</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P45K' })"		>45кю</a> - Научете как се прави "Стълба"</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'nigan' })"		>Камъни, които не могат да бъдат пленени</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P44K' })"		>44кю</a> - Направете две очи</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P43K' })"		>43кю</a> - Семеай (надпревара в пленяването)</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P42K' })"		>42кю</a> - Утегаеши (snapback) - контрапленяване</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'ko' })"			>Ко</a> - Последното правило</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'P40K' })"		>40кю</a> - Гнездото на жерава</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'falseeye' })"	>39кю</a> - Фалшиви очи</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'cornerwar' })"	>38кю</a> - Битка в ъгъла</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'complex' })"		>37кю</a></li>
 			
 			<h4>Как протича играта на Го</h4>
-			<li><a ui-sref="url({ lang: 'bg', page: 'fuseki' })"		>Началото</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'middle' })"		>36кю</a> - Средата</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'count' })"			>Краят</a> - Как да сметнем територията?</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'count2' })"		>Краят</a> - втора част</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'cut' })"			>Разделящи камъни</a> - Раздели противника!</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'defend' })"		>Защита</a> - Предпазете се от разделяне</li>
-			<li><a ui-sref="url({ lang: 'bg', page: '1ken' })"			>Единичен скок</a> - много добър ход</li>
-			<li><a ui-sref="url({ lang: 'bg', page: '2ken' })"			>Повече за скоковете</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'end' })"			>35кю</a> - Играта е почти свършила</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'hitome' })"		>34кю</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'samplegame' })"	>Примерни игри</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'komi' })"			>Коми</a> - Малък бонус за Белия</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'fuseki' })"		>Началото</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'middle' })"		>36кю</a> - Средата</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'count' })"		>Краят</a> - Как да сметнем територията?</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'count2' })"		>Краят</a> - втора част</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'cut' })"			>Разделящи камъни</a> - Раздели противника!</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'defend' })"		>Защита</a> - Предпазете се от разделяне</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: '1ken' })"		>Единичен скок</a> - много добър ход</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: '2ken' })"		>Повече за скоковете</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'end' })"			>35кю</a> - Играта е почти свършила</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'hitome' })"		>34кю</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'samplegame' })"	>Примерни игри</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'komi' })"		>Коми</a> - Малък бонус за Белия</li>
 			
 			<h4>Подготовка за истинската игра</h4>
-			<li><a ui-sref="url({ lang: 'bg', page: 'tsukehane' })"		>Плесница по бузата!</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'hanenobi' })"		>Изтегли своите камъни</a></li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'kakari' })"		>Какари and Шимари</a> - ъглите са доходни</li>
-			<li><a ui-sref="url({ lang: 'bg', page: 'epilog' })"		>Епилог</a> - А сега накъде?</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'tsukehane' })"	>Плесница по бузата!</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'hanenobi' })"	>Изтегли своите камъни</a></li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'kakari' })"		>Какари and Шимари</a> - ъглите са доходни</li>
+			<li><a ui-sref="url({ lang: $state.params.lang, page: 'epilog' })"		>Епилог</a> - А сега накъде?</li>
 		</ol>
 	</aside>
 	
 	<div id="content" ui-view></div>
 	
+	<!--
 	<a href="count2.html"><img src="images/next.png" border="0">Следващ урок</a><p>
 	<a href="TOC.html"><img src="images/toc.png" border="0">Съдържание</a><p>
 	<a href="../index-e.html" target="_top"><img src="images/playgoto.png">Начало</a>
+	 -->
 	
 	
 	<footer>
-		<p>Автор: <a href="mailto:mori@playgo.to">Hiroki Mori</a> | Превод: Мордред и <a href="mailto:karamfil.pc@gmail.com">Карамфил</a></p>
+		<p>Автор: <a href="mailto:mori@playgo.to">Hiroki Mori</a> | <span ng-bind-html="$sce.trustAsHtml(T.__meta__.translators)"></span></p>
 		<p>&copy; Copyright 1997-2001, Hiroki Mori</p>
 	</footer>
 </body>

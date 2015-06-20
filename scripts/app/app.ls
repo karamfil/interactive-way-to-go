@@ -5,8 +5,8 @@ app = angular.module \iwtg, [
 ]
 
 app.config [
-	\$interpolateProvider \$locationProvider \$urlMatcherFactoryProvider \$stateProvider 
-	($interpolateProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider, $http)->
+	\$interpolateProvider \$locationProvider \$urlMatcherFactoryProvider \$stateProvider
+	($interpolateProvider, $locationProvider, $urlMatcherFactoryProvider, $stateProvider)->
 		$interpolateProvider
 			.startSymbol	'[['
 			.endSymbol		']]'
@@ -17,16 +17,22 @@ app.config [
 		
 		$urlMatcherFactoryProvider.strictMode(false)
 		
+		resolvers = 
+			lang: [\$stateParams, \TranslationsService ($stateParams, TranslationsService)-> TranslationsService.lang $stateParams.lang ]
+		
 		$stateProvider
 			.state \home,
-				url			: '/:lang/'
-				templateUrl	: \tpl/home/index/
+				url			: ''
+				templateUrl	: "/pages/welcome.html"
 				# resolve		: data: [\$stateParams \$http ($stateParams, $http)-> $http.get "api/home/index/"]
 			.state \url,
 				url			: \/:lang/:page/
-				templateUrl	: -> "pages/#{it.lang}/#{it.page}.html"
-				# controller	: [\$scope \response ($scope, response)-> $scope.response = response.data ]
-				# resolve		: response: [\$stateParams \$http ($stateParams, $http)-> $http.get "api/#{$stateParams.model}/#{$stateParams.method}/"]
+				templateUrl	: -> "/pages/#{it.page}.html"
+				controller	: [ \$rootScope \TranslationsService \translations ($rootScope, TranslationsService, translations)->
+					$rootScope.T		= translations.data
+					$rootScope.LANG		= TranslationsService.lang_current
+				]
+				resolve		: translations: resolvers.lang
 		
 		# TODO LOADER
 ]

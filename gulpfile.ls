@@ -4,6 +4,8 @@ require! [ \gulp \gulp-load-plugins \merge2 ]
 $ = gulpLoadPlugins(/*lazy: false*/)
 
 paths =
+	JSON_SRC		: \translations/**/*.json,
+	
 	SCSS_SRC		: \scss/*.scss,
 	SCSS_DST		: \styles/
 	
@@ -32,6 +34,11 @@ gulp.task \html, ->
 	gulp.src paths.HTML_SRC
 		.pipe $.cached!
 		.pipe $.livereload!
+		
+gulp.task \json, ->
+	gulp.src paths.JSON_SRC
+		.pipe $.cached!
+		.pipe $.livereload!
 
 gulp.task \scss, ->
 	gulp.src paths.SCSS_SRC
@@ -48,6 +55,7 @@ gulp.task \watch, ->
 	
 	gulp.watch paths.VENDOR_SRC ++ paths.LIVESCRIPT_SRC, [ \livescript ]
 	gulp.watch paths.SCSS_SRC, [ \scss ]
+	gulp.watch paths.JSON_SRC, [ \json ]
 	gulp.watch paths.HTML_SRC, [ \html ]
 
 gulp.task \default, [ \watch \livescript \scss ]
